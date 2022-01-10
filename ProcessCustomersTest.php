@@ -42,14 +42,14 @@ class ProcessCustomersTest extends TestCase
         $result = Phake::makeVisible($process_customers)->parseLine($line, ",");
         $this->assertNull(
             $result,
-            "line with not enough data fails"
+            "line with not enough fields fails"
         );
 
         $line = "w,a,y,t,o,o,m,a,n,y,fields,here,wow,so,much,data";
         $result = Phake::makeVisible($process_customers)->parseLine($line, ",");
         $this->assertNull(
             $result,
-            "line with not enough data fails"
+            "line with too many fields fails"
         );
     }
 

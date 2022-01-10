@@ -24,8 +24,8 @@ composer dump-autoload
 
 ## ProcessCustomers
 ProcessCustomers has two options:
-`-f` or `--filename`: required. The file to read customers from.
-`-s` or `--separator`: optional (defaults to ','). Delimiter between customer data on each line.
+- `-f` or `--filename`: required. The file to read customers from.
+- `-s` or `--separator`: optional (defaults to ','). Delimiter between customer data on each line.
 
 You can run ProcessCustomers like:
 ```
@@ -36,9 +36,9 @@ php process_customers.php -f customers.txt -s |
 ## DisplayCustomers
 DisplayCustomers prints out a list of all customers. This list is unsorted by default, but you can use
 commandline options to specify how to sort the list:
-`-f`: sort customers by first name
-`-l`: sort customers by last name
-`-t`: sort customers by vehicle type
+- `-f`: sort customers by first name
+- `-l`: sort customers by last name
+- `-t`: sort customers by vehicle type
 
 You can run DisplayCustomers like:
 ```
@@ -64,7 +64,8 @@ mockable and therefore unit testable.
 
 
 ## Assumptions
-- Each line in the ProcessCustomers input file will contain first name, last name, email, vehicle type, vehicle
-name, and vehicle length in that order.
-- We only care about the number of feet long a vehicle is (inches and other smaller measurements can be discarded)
-- Vehicle length in feet will always be the first integer in the vehicle length field (eg, 32 ft 8 in, rather than 8 in 32 ft)
+- Each line in the ProcessCustomers input file will contain the following fields, in order: first name, last name,
+  email, vehicle type, vehicle name, and vehicle length.
+- The vehicle length field:
+    - Input vehicle length will always be specified in feet and stored as the integer number of feet
+    - Length in feet will always be the first integer in the vehicle length field (eg, "32 ft 8 in", not "8 in 32 ft")
